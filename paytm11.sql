@@ -35,6 +35,7 @@ wallet_type varchar(20),
 user_id char(5),
 foreign key (user_id) references user_info(user_id)
 );
+desc wallet_info;
 
 insert into wallet_info values
 ('w001',1000,'upi','u001'),
@@ -42,6 +43,7 @@ insert into wallet_info values
 ('w003',800,'upi','u003'),
 ('w004',2000,'upi','u004'),
 ('w005',1200,'upi','u005');
+select *from wallet_info;
 
 create table merchant_info (
 merchant_id char(5) primary key,
@@ -49,7 +51,7 @@ merchant_name varchar(30),
 location varchar(20),
 category varchar(20)
 );
-
+desc merchant_info; 
 insert into merchant_info values
 ('m001','kavya','bangalore','recharge'),
 ('m002','bhhomi','mysore','shopping'),
@@ -67,6 +69,8 @@ insert into merchant_info values
 ('m014','suhas','patna','travel'),
 ('m015','kavya','goa','bills');
 
+select *from merchant_info;
+
 create table transactions_info (
 txn_id int primary key,
 amount decimal(8,2),
@@ -74,7 +78,7 @@ status varchar(20),
 wallet_id char(5),
 foreign key (wallet_id) references wallet_info(wallet_id)
 );
-
+desc transactions_info;
 insert into transactions_info values
 (1,250,'success','w001'),
 (2,300,'success','w002'),
@@ -82,12 +86,14 @@ insert into transactions_info values
 (4,500,'success','w004'),
 (5,200,'failed','w005');
 
+select * from transactions_info;
 create table bank_info (
 bank_id char(5) primary key,
 bank_name varchar(30),
 ifsc varchar(20),
 city varchar(20)
 );
+desc bank_info;
 
 insert into bank_info values
 ('b001','kavya','ifsc001','bangalore'),
@@ -105,7 +111,9 @@ insert into bank_info values
 ('b013','teju','ifsc013','bhopal'),
 ('b014','suhas','ifsc014','patna'),
 ('b015','kavya','ifsc015','goa');
-
+ 
+ select*from bank_info;
+ 
 create table bank_transactions (
 bt_id int primary key,
 amount decimal(8,2),
